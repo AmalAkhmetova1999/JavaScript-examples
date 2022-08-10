@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            background-color: steelblue;
+            text-align: center;
+            margin-top: 20%;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        var day = new Date();
+        var today = day.getDay();
+        document.write('Today is: ' + days[today]);
+    </script><br><br>
+    <script>
+        var now = new Date().toLocaleTimeString();
+        document.write('Current time is: ' + now)
+    </script>
+</body>
+
+</html>
