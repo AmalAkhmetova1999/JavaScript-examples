@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            background-color: rgb(231, 43, 124);
+            text-align: center;
+            margin-top: 20%;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+
+        <button onclick="ToString()">ToString</button>
+        <button onclick="Join()">Join</button>
+        <button onclick="JoinPlus()">JoinPlus</button>
+    </div>
+    <p id="string"></p>
+</body>
+<script>
+    function ToString() {
+        var myColor = ["Red", "Green", "White", "Black"];
+        document.getElementById('string').innerHTML = (myColor.toString());
+    }
+
+    function Join() {
+        var myColor = ["Red", "Green", "White", "Black"];
+        document.getElementById('string').innerHTML = (myColor.join());
+    }
+
+    function JoinPlus() {
+        var myColor = ["Red", "Green", "White", "Black"];
+        document.getElementById('string').innerHTML = (myColor.join('+'));
+    }
+</script>
+
+</html>
