@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            background-color: rgb(196, 246, 126);
+            text-align: center;
+            margin-top: 20%;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <label for="number">Number</label><br>
+        <input type="number" id="num"><br><br>
+        <button onclick="Reverse()">Reverse</button>
+    </div>
+    <p id="reverse"></p>
+</body>
+<script>
+    function Reverse() {
+        const num = Number(document.getElementById('num').value);
+        const reverse = (num) => parseInt(String(num)
+            .split("")
+            .reverse()
+            .join(""), 10);
+        document.getElementById('reverse').innerHTML = ('Reverse Number: ')+ (reverse(num));
+    }
+</script>
+
+</html>
