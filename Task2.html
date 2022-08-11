@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            background-color: steelblue;
+            text-align: center;
+            margin-top: 20%;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <label for="1st number">1st number</label>
+        <input type="number" id="number1"><br><br>
+        <label for="2nd number">2nd number</label>
+        <input type="number" id="number2"><br><br>
+        <button onclick="Multiply()">Multiply</button>
+        <button onclick="Divide()">Divide</button>
+    </div>
+    <p id="result"></p>
+</body>
+<script>
+    function Multiply() {
+        var result;
+        var number1 = Number(document.getElementById('number1').value);
+        var number2 = Number(document.getElementById('number2').value);
+        result = number1 * number2;
+        document.getElementById('result').innerHTML = ('The Result Is: ') + result;
+    }
+
+    function Divide() {
+        var result;
+        var number1 = Number(document.getElementById('number1').value);
+        var number2 = Number(document.getElementById('number2').value);
+        result = number1 / number2;
+        document.getElementById('result').innerHTML = ('The Result Is: ') + result;
+    }
+</script>
+
+</html>
