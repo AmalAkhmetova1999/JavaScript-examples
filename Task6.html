@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            background-color: rgb(40, 30, 13);
+            color: white;
+            text-align: center;
+            margin-top: 20%;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <input type="text" id="element">
+        <button onclick="Add()">Add</button>
+        <button onclick="Display()">Display</button>
+    </div>
+    <p id="result"></p>
+</body>
+<script>
+    var array = Array();
+    var first = 0;
+
+    function Add() {
+        array[first] = document.getElementById('element').value;
+        first++;
+        document.getElementById('element').value = "";
+    }
+
+    function Display() {
+        var e = "<hr/>";
+        for (var second = 0; second < array.length; second++) {
+            e += "Element" + second + "=" + array[second] + "<br/>";
+        }
+        document.getElementById('result').innerHTML = e;
+    }
+</script>
+
+</html>
