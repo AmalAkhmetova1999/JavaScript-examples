@@ -20,9 +20,14 @@
     <input type="button" onclick="insert_Row()" value="Insert row">
 </body>
 <script>
-    var table = document.getElementById('sampleTable');
-    var row = table.querySelectorAll('tr');
-    for (var i = 0; i < table.row.length; i++)
+    function insert_Row() {
+        var table = document.getElementById('sampleTable');
+        var row = table.insertRow(0);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        cell1.innerHTML = "new row1";
+        cell2.innerHTML = "new row2";
+    }
 </script>
 
 </html>
