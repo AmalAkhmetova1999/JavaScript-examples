@@ -1,0 +1,66 @@
+body {
+    background-color: lightpink;
+    font-family: Georgia, 'Times New Roman', Times, serif
+}
+
+footer {
+    position: absolute;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: 1%;
+    left: 47%;
+}
+
+ul {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+li {
+    display: inline-block;
+    margin: 3%;
+    padding: 2%;
+    background-color: rgb(194, 47, 111);
+    border-radius: 10px;
+    border: 2px solid rgb(120, 25, 66);
+}
+
+.button {
+    text-align: center;
+    margin-top: 5%;
+}
+
+.button2 {
+    text-align: center;
+    margin-top: 2%;
+}
+
+.button3 {
+    text-align: center;
+    margin-top: 1%;
+}
+
+#reg {
+    display: none;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+button {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: rgb(194, 47, 111);
+    border: 2px solid rgb(120, 25, 66);
+}
+
+.input {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1%;
+
+}
