@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <style>
+        body {
+            background-color: cadetblue;
+        }
+
+        footer {
+            position: absolute;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            bottom: 1%;
+            left: 47%;
+        }
+
+        .input {
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 10%;
+            display: block;
+        }
+
+        .button {
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 3%;
+            display: block;
+        }
+
+        button {
+            background-color: darkslategrey;
+            border: 2px solid darkslateblue;
+            border-radius: 10px;
+            width: 7%;
+            color: antiquewhite;
+        }
+
+        .avatar {
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            color: bisque;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="input">
+        <input type="text" id="idName"><br>
+        <input id="idInput"><br>
+    </div>
+    <div class="button">
+        <button onclick="J()" id="idButton">Log in</button>
+    </div>
+    <div class="avatar"></div>
+    <script>
+        async function J() {
+            var inputId = document.getElementById("idInput").value;
+            var inputName = document.getElementById("idName").value;
+            console.log(inputId);
+            let url = 'https://reqres.in/api/users/' + inputId;
+            let response = await fetch(url);
+            let content = await response.json()
+            let data = content.data;
+            console.log(content);
+            let avatar = document.querySelector('.avatar')
+            if (inputName == content.data.first_name) {
+                alert('Вы вошли в систему!');
+                avatar.innerHTML += `<div class="avatar">
+            <h4>Your Profile</h4>
+            <h5>${content.data.first_name} ${content.data.last_name}</h5>
+            <p>${content.data.email}</p>
+            <img src='${content.data.avatar}'>
+            
+        </div>`
+                document.getElementById('idName').style.display = "none";
+                document.getElementById('idInput').style.display = "none";
+                document.getElementById('idButton').style.display = "none";
+            } else {
+                alert('Неверные данные, попробуйте снова!');
+            }
+
+        }
+
+        //Если док.гетэлбаад
+        /*async function J() {
+            let response = await fetch('https://reqres.in/api/users/')
+            let content = await response.json()
+            let list = document.querySelector('.am')
+
+            let key;
+            for (key in content) {
+                list.innerHTML += `<li class="amm">
+            <h4>${content[key].first_name}</h4>
+            <img src=${content[key].avatar}>
+        </li>`
+            };
+
+            //.then(response => response.json())
+            //.then((data) => {
+            //  console.log(data)
+            //})
+        }
+
+
+        /*.then(json => {
+                    console.log(json.data);
+                    console.log(email);
+                    var user = json.data.user_id;
+                    var user1 = document.getElementById('id').value;
+                    if (user1 == user) {
+                        console.log(json.data.user_first_name)
+                    };
+                    //console.log(user);
+                    //console.log(user1)
+                })
+        }
+
+
+        /*.then((response) => {
+return response.json();
+})
+.then((data) => {
+console.log(user.id);
+});
+console.log('hello', a)*/
+    </script>
+</body>
+<footer>made by Amal</footer>
+
+</html>
