@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            background-color: rgb(4, 52, 52);
+            color: aliceblue;
+        }
+
+        input {
+            background-color: rgba(147, 241, 255, 0.505);
+        }
+
+        .one {
+            text-align: center;
+        }
+
+        .eno {
+            margin-top: 10%;
+        }
+
+        button {
+            background-color: rgb(5, 40, 46);
+            color: aliceblue;
+            border: 1px solid aliceblue;
+            border-radius: 7%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="one eno">
+        <label for="text">Введите текст</label><br><br>
+        <input type="text" id="text" required><br><br><br>
+    </div>
+    <div class="one">
+        <label for="size">Введите размер</label><br><br>
+        <input type="text" id="size" required><br><br><br>
+    </div>
+    <div class="one">
+        <label for="color">Введите цвет</label><br><br>
+        <input type="text" id="color" required><br><br>
+    </div>
+    <div class="one">
+        <button onclick="mem()">PUSH</button>
+    </div>
+    <script>
+        async function mem() {
+            var text = document.getElementById('text').value
+            var size = document.getElementById('size').value
+            var color = document.getElementById('color').value
+            //var url = ('https://cataas.com/#/cat/says/boo?size=50&color=blue')
+            var url = ('https://cataas.com/cat/says/' + text + '?size=' + size + '&color=' + color +
+                '&json=true')
+            let response = await fetch(url)
+            //console.log(response);
+            // var first = response.url;
+            let all = await response.json();
+            console.log(all);
+            let myURL = all.url;
+            console.log(myURL)
+            if (response.status = 200) {
+                window.location.replace('https://cataas.com' + myURL)
+            }
+
+            // var a = response.json();
+            //console.log(a);
+            //  console.log(first_url)
+            //if (response.status=200){
+            //window.location.replace(first)}
+            // console.log(response.url);
+            // console.log(response.url.id);
+
+            /*const params = new URLSearchParams {
+                text: 'boo',
+                size: '50',
+                color: 'red'
+            }*/
+        }
+    </script>
+</body>
+
+</html>

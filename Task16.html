@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: lightpink;
+            font-size: 10pt;
+        }
+
+        footer {
+            position: absolute;
+            bottom: 0%;
+            text-align: center;
+
+        }
+
+        table {
+            text-align: center;
+            margin-top: 10%;
+            border: 0.5px solid black;
+            width: 50%;
+        }
+
+        tr {
+            border: 0.5px solid black;
+        }
+
+        td {
+            border: 0.5px solid black;
+        }
+
+        .button {
+            width: 70px;
+            height: 70px;
+            background-color: darkslategrey;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 5%;
+            border: none;
+            border-radius: 50%;
+        }
+
+        button {
+            margin-top: 30%;
+            border: none;
+            background-color: darkslategrey;
+            color: bisque;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="file" id="yourId">
+    <button onclick="first()">Загрузить</button>
+    <input type="text" id="key">
+    <button onclick="second()" download="download">Скачать</button>
+    <input type="text" id="expires">
+    <button onclick="third()">Обновить</button>
+    <script>
+        async function first() {
+            var file = document.getElementById("yourId");
+            var data = new FormData()
+            data.append('file', file.files[0])
+            data.append('expires', "2022-10-01")
+            data.append('maxDownloads', 1)
+            data.append('autoDelete', true)
+            let response = await fetch('https://file.io/', {
+                method: 'POST',
+                headers: {
+                    'Authorization': 'Bearer KRMV5WO.F9YM6RM-AY94V3T-QG1XWQB-1PJ6GD0',
+                },
+                body: data
+            });
+
+            console.log(response.status);
+
+        }
+
+
+        function hexToBase64(str) {
+            return btoa(String.fromCharCode.apply(null, str.replace(/\r|\n/g, "").replace(/([\da-fA-F]{2}) ?/g, "0x$1 ")
+                .replace(/ +$/, "").split(" ")));
+        }
+
+        function second() {
+            let key = document.getElementById('key').value;
+            let url = ('https://file.io/' + key);
+            const response = fetch(url, {
+                    method: 'GET',
+                    mode: "no-cors",
+                    headers: {
+                        'Authorization': 'Bearer KRMV5WO.F9YM6RM-AY94V3T-QG1XWQB-1PJ6GD0',
+                        'accept': '*/*'
+                    }
+                })
+                .then((res) => {
+                    console.log(res);
+                    res.arrayBuffer();
+                })
+                .then((data) => {
+                    console.log(data);
+                    var img = document.createElement('img');
+                    img.src = "data:image/jpeg;base64," + hexToBase64(data);
+                    document.body.appendChild(img);
+                    // var a = document.createElement("a");
+                    //a.href = window.URL.createObjectURL(data); //нужно как-то добавить ссылку редиректа сюда
+                    //a.download = "filename.jpg";
+                    //a.click();
+                });
+
+            console.log(url)
+
+        }
+
+        function third() {
+            var file = document.getElementById("yourId");
+            var data = new FormData()
+            var expires = document.getElementById('expires').value;
+            data.append('file', file.files[0])
+            data.append('expires', expires)
+            data.append('maxDownloads', 1)
+            data.append('autoDelete', true)
+            const response = fetch('https://file.io/RSjCzUeRwTOf', {
+                method: 'PUT',
+                headers: {
+                    'Authorization': 'Bearer KRMV5WO.F9YM6RM-AY94V3T-QG1XWQB-1PJ6GD0',
+                },
+                body: data
+            })
+            console.log(response)
+        }
+
+        /*    var key = document.getElementById('key').value;
+            var url = ('https://www.file.io/download/' + key);
+            var response = await fetch(url, {
+                method: 'GET',
+                mode:"same-origin",
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                    'Authorization': 'Bearer KRMV5WO.F9YM6RM-AY94V3T-QG1XWQB-1PJ6GD0',
+                }
+            })
+            let res=response.jtext()
+            console.log(res.status);
+           /* if (response.status = '200') {
+                function download(url) {
+                    url.setAttrribute("downoload", file);
+                    url.click()
+                }
+            }*/
+    </script>
+</body>
+<footer class="col-12">made by Amal</footer>
+
+</html>
