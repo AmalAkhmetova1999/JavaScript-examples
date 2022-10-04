@@ -27,6 +27,10 @@
             border-radius: 7%;
         }
     </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 
 <body>
@@ -43,7 +47,7 @@
         <input type="text" id="color" required><br><br>
     </div>
     <div class="one">
-        <button onclick="mem()">PUSH</button>
+        <button class="download" onclick="mem()">PUSH</button>
     </div>
     <script>
         async function mem() {
@@ -61,23 +65,39 @@
             let myURL = all.url;
             console.log(myURL)
             if (response.status = 200) {
-                window.location.replace('https://cataas.com' + myURL)
+                window.location.replace('https://cataas.com' + myURL);
+
+                // var a = response.json();
+                //console.log(a);
+                //  console.log(first_url)
+                //if (response.status=200){
+                //window.location.replace(first)}
+                // console.log(response.url);
+                // console.log(response.url.id);
+
+                /*const params = new URLSearchParams {
+                    text: 'boo',
+                    size: '50',
+                    color: 'red'
+                }*/
+                const urll = window.URL.createObjectURL(new Blob([response]));
+                const link = document.createElement('a');
+                link.href = urll;
+                link.setAttribute('download', 'file.jpg');
+                document.body.appendChild(link);
+                link.click();
             }
-
-            // var a = response.json();
-            //console.log(a);
-            //  console.log(first_url)
-            //if (response.status=200){
-            //window.location.replace(first)}
-            // console.log(response.url);
-            // console.log(response.url.id);
-
-            /*const params = new URLSearchParams {
-                text: 'boo',
-                size: '50',
-                color: 'red'
-            }*/
         }
+        /*  let text = JSON.stringify({hello:'example'});
+downloadAsFile(text);
+
+function downloadAsFile(data) {
+  let a = document.createElement("a");
+  let file = new Blob([data], {type: 'application/json'});
+  a.href = URL.createObjectURL(file);
+  a.download = "example.txt";
+  a.click();
+}*/
     </script>
 </body>
 
