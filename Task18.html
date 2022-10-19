@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8 />
+</head>
+
+<body>
+    <input type="text" id="word" required>
+    <button onclick="e()">result</button>
+</body>
+<script>
+    function result() {
+        const word = document.getElementById('word').value;
+        console.log(word);
+        let array = [word];
+        console.log(array)
+        let str = array.join(';');
+        console.log(str);
+        let str1 = str.split('');
+        console.log(str1);
+        let all = str1.join('');
+        document.write(all + "<br \/>")
+        let one = all.slice(1);
+        document.write(one + "<br \/>");
+        let two = all.slice(1, 2);
+        document.write(two + "<br \/>");
+        let three = all.slice(2);
+        document.write(three + "<br \/>")
+        let four = all.slice(0, 1);
+        document.write(four + "<br \/>");
+        let five = all.slice(0, 2);
+        document.write(five + "<br \/>")
+
+    }
+
+    /*  function b() {
+          const word = document.getElementById('word').value;
+          let array = [word];
+          let str = array.join(';');
+          console.log(str);
+          let str1 = str.split('');
+          console.log(str1);
+          var i = 0;
+          str1.forEach(element => {
+              i < str1.length;
+              // console.log(str1[i])
+              i++
+              let v = str;
+
+              let r = v.slice(i)
+              console.log(r)
+
+
+          });
+      }*/
+    let word;
+
+    function b() {
+        word = document.getElementById('word').value;
+        a(word.length)
+    }
+
+    function a(f) {
+        console.log(word.substring(f)); //robot
+
+        document.write(word.substring(0) + "<br \/>"); //robot
+        document.write(word.substring(1) + "<br \/>"); //obot
+        document.write(word.substring(2) + "<br \/>"); //bot
+        document.write(word.substring(3) + "<br \/>"); //ot
+        document.write(word.substring(4) + "<br \/>"); //t
+        document.write(word.substring(1, 2) + "<br \/>"); //o
+        document.write(word.substring(1, 3) + "<br \/>"); //ob
+        document.write(word.substring(1, 4) + "<br \/>"); //obo
+        //console.log(word.substring(1,5));//obot delete
+        document.write(word.substring(2, 3) + "<br \/>"); //b
+        document.write(word.substring(2, 4) + "<br \/>"); //bo
+        // console.log(word.substring(2,5));//bot delete
+        document.write(word.substring(3, 4) + "<br \/>"); //o
+        document.write(word.substring(0, 1) + "<br \/>"); //r
+        document.write(word.substring(0, 2) + "<br \/>"); //ro
+        document.write(word.substring(0, 3) + "<br \/>"); //rob
+        document.write(word.substring(0, 4) + "<br \/>"); //robo
+        /*console.log(word.substring(1,5));
+        console.log(word.substring(2,5));
+        console.log(word.substring(3,5));
+        console.log(word.substring(4,5));*/
+        /*let array = [word];
+        let str = array.join(';');
+        console.log(str);
+        let str1 = str.split('');
+        console.log(str1);
+        console.log(f)*/
+        //var c = str1.length;
+        //console.log(c)
+        // const c2 = c-- //создается на 1 меньше
+        if (f > 0) {
+            var f2 = f - 1
+            console.log(f2);
+            a(f2)
+
+
+        }
+
+
+    }
+
+    function test(str) {
+        if (str.length < 1)
+            return;
+
+        for (var j = 0; j < str.length; ++j) {
+            console.log(str.substr(0, j + 1));
+        }
+
+        test(str.substr(1, j + 1));
+    }
+
+    //test("привет")
+
+    function m(word) {
+
+        if (word.length < 1) //если длина меньше одного, то
+            return;
+        for (var i = 0; i < word.length; i++) { //ай=0, ай меньше длины, прибавляем +1
+            console.log(word.substr(0, i + 1)); //
+        }
+        m(word.substr(1, i + 1));
+    }
+
+    function e() {
+        let word = document.getElementById('word').value;
+        m(word)
+
+    }
+
+
+
+
+    /* function minusCounter(number) {
+         const newNumber = number - 1
+         if (newNumber > 0) {
+             minusCounter(newNumber)
+         }
+         console.log(newNumber)
+     }
+     minusCounter(7)
+     //for (var i = 0; i < str1.length; i++) {
+     //   let b =str1.slice(i++)
+     //  console.log(b)
+
+     // }*/
+</script>
+
+</html>
