@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8 />
+    <style>
+        #old {
+            text-align: center;
+        }
+
+        button {
+            background-color: cadetblue;
+            color: wheat;
+            border-radius: 50%;
+            border: none;
+            width: 10%;
+            height: 20px;
+            margin-top: 1%;
+
+        }
+
+        #new {
+            padding: 1%;
+            margin-top: 5%;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="old"><button id="button" onclick="a()">all buttons</button></div>
+    <div id="new"></div>
+</body>
+<script>
+    function a() {
+        for (i = 1; i < 11; i++) {
+            var div = document.createElement("div");
+            div.innerHTML = `<button id="id${i}">ClickMe${i}</button>`;
+            document.getElementById("new").appendChild(div)
+        }
+    }
+</script>
+
+</html>
