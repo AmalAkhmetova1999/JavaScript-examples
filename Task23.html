@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://unpkg.com/react@16/umd/react.development.js "></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js "></script>
+    <style>
+        .style {
+            text-align: center;
+        }
+
+        .a {
+            background-color: antiquewhite;
+        }
+
+        li {
+            display: inline;
+            margin-right: 5%;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14pt;
+        }
+
+        button {
+            border: none;
+            background-color: antiquewhite;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14pt;
+        }
+
+        .book {
+            display: block;
+            margin-right: 8%;
+        }
+
+        #j {
+            display: none
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+
+<script type="text/babel">
+    function Menu(){
+        function push() {
+        document.getElementById("j").style.display = 'block';
+    }
+return(<div class="style">
+        <ul class="a">
+            <li>Home</li>
+            <li>Main</li>
+            <li><button onClick={push}>Books</button></li>
+            <li>News</li>
+            <li>Contact</li>
+            </ul>
+            <ul id="j" >
+            <li class="book">book 1</li>
+            <li class="book">book 2</li>
+            <li class="book">book 3</li>
+            <li class="book">book 4</li>
+            <li class="book">book 5</li>
+            </ul>
+            
+            </div>)}
+        
+          function App(){return(<section>
+    <Menu/>
+    </section>)}
+    
+
+    ReactDOM.render(<App/>, document.getElementById('root'))
+    
+</script>
+
+
+
+</html>
