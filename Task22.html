@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://unpkg.com/react@16/umd/react.development.js "></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js "></script>
+    <style>
+        body {
+            background-color: rgba(7, 135, 88, 0.982);
+        }
+
+        .img {
+            width: 25%;
+        }
+
+        .style {
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script type="text/babel">
+    function Image(){return(<div class="style"><img class="img" src="hamster.jpg"/>
+        <p>Hamster is very hungry</p>
+        </div>)}
+
+  function App(){return(<section>
+    <Image/>
+    <Image/>
+    <Image/>
+    </section>)}
+    
+
+    ReactDOM.render(<App/>, document.getElementById('root'))
+</script>
+
+</html>
