@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://unpkg.com/react@16/umd/react.development.js "></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js "></script>
+    <style>
+
+    </style>
+
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+
+<script type="text/babel">
+
+    const Comment=[ 
+        {author: "John",
+         title:"GOOD",
+         content:"<This cream is very good! Removed all inflammation in 3 weeks!>",
+         likes:"likes:309"},
+         {author: "Mary",
+         title:"STRANGE",
+         content:"<The cream is strange, caused peeling of the skin, did not fit.>",
+         likes:"likes:20"},
+         {author: "Kate",
+         title:"VERY GOOD",
+         content:"<Very cool cream! Bought 3 more jars!>",
+         likes:"likes:215"},
+         {author: "Ross",
+         title:"BAD",
+         content:"<The cream has a very unpleasant smell, I did not like it, I do not use it...>",
+         likes:"likes:12"},
+         {author: "Paul",
+         title:"NICE",
+         content:"<Like it. Nice soft cream.>",
+         likes:"likes:180"},
+         {author: "Jessy",
+         title:"BEAUTIFUL",
+         content:"<My favorite one! It's so beautiful! And I'm beautiful too!>",
+         likes:"likes:267"}]
+        
+function Reaction(props){
+    return(
+<div>
+    <h3>{props.author}</h3>
+    <p>{props.title}</p>
+    <p>{props.content}</p>
+    <p>{props.likes}</p>
+    </div>
+
+    )
+}
+function App(){
+return(
+<div>
+    {Comment.map((comment)=>{
+return(
+<Reaction author={comment.author} title={comment.title} content={comment.content} likes={comment.likes}/>
+); })}
+    </div>
+);
+}
+
+ReactDOM.render(<App/>, document.getElementById('root'))
+</script>
+
+</html>
