@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://unpkg.com/react@16/umd/react.development.js "></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js "></script>
+    <style>
+        .person {
+            display: inline-block;
+            margin-right: 3%;
+            text-align: center;
+            border: 1px solid black;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+
+<script type="text/babel">
+
+    var Users=[
+        {name: "Deepak",
+         rollNo:"123",
+        age:18},
+         {name: "Yash",
+         rollNo:"124",
+         age:23},
+         {name: "Raj",
+         rollNo:"125",
+        age:26},
+         {name: "Rohan",
+         rollNo:"126",
+         age:19},
+         {name: "Puneet",
+         rollNo:"127",
+         age:18},
+         {name: "Vivek",
+         rollNo:"128",
+         age:25},
+         {name: "Aman",
+         rollNo:"129",
+         age:31}
+       ]
+       
+function PersonInfo(props){
+    return(
+        <div class="person">
+            <p >{props.name}</p>
+            <p >{props.rollNo}</p>
+            <p >{props.age}</p>
+            </div>
+    )
+        }
+
+function App(){
+    return(
+<div>
+    {Users.map((person)=>{
+        return(
+            <PersonInfo name={person.name} rollNo={person.rollNo} age={person.age}/>
+        );})}
+        </div>
+    );
+    }
+
+    ReactDOM.render(<App/>,document.getElementById('root'))
+
+
+
+
+
+
+
+
+</script>
+
+
+
+</html>
